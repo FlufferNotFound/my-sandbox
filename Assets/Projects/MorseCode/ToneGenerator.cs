@@ -78,14 +78,12 @@ public class ToneGenerator : MonoBehaviour
 
         for (int i = 0; i < samples; i++)
         {
-            // Triangle wave: range -1 to 1
             float value = 2f * Mathf.Abs(2f * phase - 1f) - 1f;
 
             data[i] = value * 0.3f;
 
             phase += increment;
 
-            // Wrap phase to [0,1)
             if (phase >= 1f)
                 phase -= 1f;
         }

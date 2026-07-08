@@ -4,8 +4,7 @@ Do what the heck you wish to do with this, I don't care.
 */
 
 using System.Collections;
-using System.ComponentModel;
-using System.Text;
+using System.ComponentModel;    
 using UnityEngine;
 
 public class MorseBeeper : MonoBehaviour
@@ -22,12 +21,7 @@ public class MorseBeeper : MonoBehaviour
 )]
     [Range(0, 4000)]
     [SerializeField]
-    public int monoTone = 800;
-
-    [Tooltip("Allows the code to loop indefinetly, as long as this value is true.")]
-    [DefaultValue(false)]
-    [SerializeField]
-    public bool useMonoTone = false;
+    public int tone = 800;
 
     [Tooltip("Allows the code to loop indefinetly, as long as this value is true.")]
     [DefaultValue(false)]
@@ -130,7 +124,7 @@ public class MorseBeeper : MonoBehaviour
                     //Dot
                     case 0:
                         beeperSource.clip = toneGenerator.GenerateSineWaveTone(
-                            monoTone,
+                            tone,
                             dotLenght / wordsPerMinute,
                             sampleRate
                         );
@@ -139,7 +133,7 @@ public class MorseBeeper : MonoBehaviour
                     //Dash
                     case 1:
                         beeperSource.clip = toneGenerator.GenerateSineWaveTone(
-                            monoTone,
+                            tone,
                             dashLength / wordsPerMinute,
                             sampleRate
                         );
@@ -148,7 +142,7 @@ public class MorseBeeper : MonoBehaviour
                     //Letter Separator
                     case 2:
                         /*beeperSource.clip = toneGenerator.GenerateSineWaveTone(
-							monoTone,
+							tone,
 							letterGap / wordsPerMinute,
 							sampleRate
                                );*/
@@ -157,7 +151,7 @@ public class MorseBeeper : MonoBehaviour
                     //Word Separator
                     case 3:
                         /*beeperSource.clip = toneGenerator.GenerateSineWaveTone(
-                            monoTone,
+                            tone,
                             wordGap / wordsPerMinute,
                             sampleRate
                         );*/
